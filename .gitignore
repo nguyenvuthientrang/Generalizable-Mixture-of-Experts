@@ -13,7 +13,8 @@ outputs/
 .swp
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
+domainbed/__pycache__/
+*/__pycache__/*
 *.py[cod]
 *$py.class
 
