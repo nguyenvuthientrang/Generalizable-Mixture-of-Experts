@@ -1,0 +1,166 @@
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 122, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir,
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/datasets.py", line 269, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/datasets.py", line 188, in __init__
+    environments = [f.name for f in os.scandir(root) if f.is_dir()]
+FileNotFoundError: [Errno 2] No such file or directory: './domainbed/data/office_home/'
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 122, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir,
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/datasets.py", line 269, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/datasets.py", line 188, in __init__
+    environments = [f.name for f in os.scandir(root) if f.is_dir()]
+FileNotFoundError: [Errno 2] No such file or directory: 'domainbed/data/office_home/'
+Downloading: "https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth" to /home/trangnvt2/.cache/torch/hub/checkpoints/deit_small_patch16_224-cd65a155.pth
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1040, in _send_output
+    self.send(msg)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1447, in connect
+    super().connect()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 956, in connect
+    self._tunnel()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 930, in _tunnel
+    raise OSError(f"Tunnel connection failed: {code} {message.strip()}")
+OSError: Tunnel connection failed: 403 VG-Blockpage
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 194, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/algorithms.py", line 196, in __init__
+    self.model = vision_transformer.deit_small_patch16_224(pretrained=True, num_classes=num_classes, moe_layers=['F'] * 8 + ['S', 'F'] * 2, mlp_ratio=4., num_experts=6, drop_path_rate=0.1, router='cosine_top').cuda()
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vision_transformer.py", line 943, in deit_small_patch16_224
+    model = _create_vision_transformer('deit_small_patch16_224', pretrained=pretrained, **model_kwargs)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vision_transformer.py", line 620, in _create_vision_transformer
+    model = build_model_with_cfg(
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vit_helpers.py", line 573, in build_model_with_cfg
+    load_pretrained(
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vit_helpers.py", line 274, in load_pretrained
+    state_dict = load_state_dict_from_url(pretrained_url, progress=progress, map_location='cpu')
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/hub.py", line 766, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/hub.py", line 620, in download_url_to_file
+    u = urlopen(req)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error Tunnel connection failed: 403 VG-Blockpage>
+Downloading: "https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth" to /home/trangnvt2/.cache/torch/hub/checkpoints/deit_small_patch16_224-cd65a155.pth
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1040, in _send_output
+    self.send(msg)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1447, in connect
+    super().connect()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 956, in connect
+    self._tunnel()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 930, in _tunnel
+    raise OSError(f"Tunnel connection failed: {code} {message.strip()}")
+OSError: Tunnel connection failed: 403 VG-Blockpage
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 194, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/algorithms.py", line 196, in __init__
+    self.model = vision_transformer.deit_small_patch16_224(pretrained=True, num_classes=num_classes, moe_layers=['F'] * 8 + ['S', 'F'] * 2, mlp_ratio=4., num_experts=6, drop_path_rate=0.1, router='cosine_top').cuda()
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vision_transformer.py", line 943, in deit_small_patch16_224
+    model = _create_vision_transformer('deit_small_patch16_224', pretrained=pretrained, **model_kwargs)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vision_transformer.py", line 620, in _create_vision_transformer
+    model = build_model_with_cfg(
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vit_helpers.py", line 573, in build_model_with_cfg
+    load_pretrained(
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vit_helpers.py", line 274, in load_pretrained
+    state_dict = load_state_dict_from_url(pretrained_url, progress=progress, map_location='cpu')
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/hub.py", line 766, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/hub.py", line 620, in download_url_to_file
+    u = urlopen(req)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error Tunnel connection failed: 403 VG-Blockpage>
+WARNING:root:[31mYou are loading a legacy format of checkpoint with at least one Tutel MoE layer inside, which wouldn't support new Tutel feature allowing the number of experts per checkpoint file to mutate.[0m
+WARNING:root:[31m  The next time you overwrite it with new checkpoint, the recording format will be updated automatically.[0m
+WARNING:root:[31m  However, the new format won't be compatible with early Tutel versions, unless you force loading it with `model.load_state_dict(.., strict=False)`.[0m
+WARNING:root:[31mYou are loading a legacy format of checkpoint with at least one Tutel MoE layer inside, which wouldn't support new Tutel feature allowing the number of experts per checkpoint file to mutate.[0m
+WARNING:root:[31m  The next time you overwrite it with new checkpoint, the recording format will be updated automatically.[0m
+WARNING:root:[31m  However, the new format won't be compatible with early Tutel versions, unless you force loading it with `model.load_state_dict(.., strict=False)`.[0m
+/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 234, in <module>
+    step_vals = algorithm.update(minibatches_device)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/algorithms.py", line 217, in update
+    return {'loss': loss.item(), 'loss_aux': loss_aux.item()}
+KeyboardInterrupt
+WARNING:root:[31mYou are loading a legacy format of checkpoint with at least one Tutel MoE layer inside, which wouldn't support new Tutel feature allowing the number of experts per checkpoint file to mutate.[0m
+WARNING:root:[31m  The next time you overwrite it with new checkpoint, the recording format will be updated automatically.[0m
+WARNING:root:[31m  However, the new format won't be compatible with early Tutel versions, unless you force loading it with `model.load_state_dict(.., strict=False)`.[0m
+WARNING:root:[31mYou are loading a legacy format of checkpoint with at least one Tutel MoE layer inside, which wouldn't support new Tutel feature allowing the number of experts per checkpoint file to mutate.[0m
+WARNING:root:[31m  The next time you overwrite it with new checkpoint, the recording format will be updated automatically.[0m
+WARNING:root:[31m  However, the new format won't be compatible with early Tutel versions, unless you force loading it with `model.load_state_dict(.., strict=False)`.[0m
+/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(

@@ -1,0 +1,189 @@
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 122, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir,
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/datasets.py", line 269, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/datasets.py", line 188, in __init__
+    environments = [f.name for f in os.scandir(root) if f.is_dir()]
+FileNotFoundError: [Errno 2] No such file or directory: './domainbed/data/office_home/'
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 122, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir,
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/datasets.py", line 269, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/datasets.py", line 188, in __init__
+    environments = [f.name for f in os.scandir(root) if f.is_dir()]
+FileNotFoundError: [Errno 2] No such file or directory: 'domainbed/data/office_home/'
+Downloading: "https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth" to /home/trangnvt2/.cache/torch/hub/checkpoints/deit_small_patch16_224-cd65a155.pth
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1040, in _send_output
+    self.send(msg)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1447, in connect
+    super().connect()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 956, in connect
+    self._tunnel()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 930, in _tunnel
+    raise OSError(f"Tunnel connection failed: {code} {message.strip()}")
+OSError: Tunnel connection failed: 403 VG-Blockpage
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 194, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/algorithms.py", line 196, in __init__
+    self.model = vision_transformer.deit_small_patch16_224(pretrained=True, num_classes=num_classes, moe_layers=['F'] * 8 + ['S', 'F'] * 2, mlp_ratio=4., num_experts=6, drop_path_rate=0.1, router='cosine_top').cuda()
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vision_transformer.py", line 943, in deit_small_patch16_224
+    model = _create_vision_transformer('deit_small_patch16_224', pretrained=pretrained, **model_kwargs)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vision_transformer.py", line 620, in _create_vision_transformer
+    model = build_model_with_cfg(
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vit_helpers.py", line 573, in build_model_with_cfg
+    load_pretrained(
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vit_helpers.py", line 274, in load_pretrained
+    state_dict = load_state_dict_from_url(pretrained_url, progress=progress, map_location='cpu')
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/hub.py", line 766, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/hub.py", line 620, in download_url_to_file
+    u = urlopen(req)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error Tunnel connection failed: 403 VG-Blockpage>
+Downloading: "https://dl.fbaipublicfiles.com/deit/deit_small_patch16_224-cd65a155.pth" to /home/trangnvt2/.cache/torch/hub/checkpoints/deit_small_patch16_224-cd65a155.pth
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1040, in _send_output
+    self.send(msg)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 1447, in connect
+    super().connect()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 956, in connect
+    self._tunnel()
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/http/client.py", line 930, in _tunnel
+    raise OSError(f"Tunnel connection failed: {code} {message.strip()}")
+OSError: Tunnel connection failed: 403 VG-Blockpage
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 194, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/algorithms.py", line 196, in __init__
+    self.model = vision_transformer.deit_small_patch16_224(pretrained=True, num_classes=num_classes, moe_layers=['F'] * 8 + ['S', 'F'] * 2, mlp_ratio=4., num_experts=6, drop_path_rate=0.1, router='cosine_top').cuda()
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vision_transformer.py", line 943, in deit_small_patch16_224
+    model = _create_vision_transformer('deit_small_patch16_224', pretrained=pretrained, **model_kwargs)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vision_transformer.py", line 620, in _create_vision_transformer
+    model = build_model_with_cfg(
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vit_helpers.py", line 573, in build_model_with_cfg
+    load_pretrained(
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/vit_helpers.py", line 274, in load_pretrained
+    state_dict = load_state_dict_from_url(pretrained_url, progress=progress, map_location='cpu')
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/hub.py", line 766, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/hub.py", line 620, in download_url_to_file
+    u = urlopen(req)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error Tunnel connection failed: 403 VG-Blockpage>
+WARNING:root:[31mYou are loading a legacy format of checkpoint with at least one Tutel MoE layer inside, which wouldn't support new Tutel feature allowing the number of experts per checkpoint file to mutate.[0m
+WARNING:root:[31m  The next time you overwrite it with new checkpoint, the recording format will be updated automatically.[0m
+WARNING:root:[31m  However, the new format won't be compatible with early Tutel versions, unless you force loading it with `model.load_state_dict(.., strict=False)`.[0m
+WARNING:root:[31mYou are loading a legacy format of checkpoint with at least one Tutel MoE layer inside, which wouldn't support new Tutel feature allowing the number of experts per checkpoint file to mutate.[0m
+WARNING:root:[31m  The next time you overwrite it with new checkpoint, the recording format will be updated automatically.[0m
+WARNING:root:[31m  However, the new format won't be compatible with early Tutel versions, unless you force loading it with `model.load_state_dict(.., strict=False)`.[0m
+_IncompatibleKeys(missing_keys=['blocks.8.mlp.gates.0.temperature', 'blocks.8.mlp.gates.0.sim_matrix', 'blocks.8.mlp.gates.0.cosine_projector.weight', 'blocks.8.mlp.gates.0.cosine_projector.bias', 'blocks.10.mlp.gates.0.temperature', 'blocks.10.mlp.gates.0.sim_matrix', 'blocks.10.mlp.gates.0.cosine_projector.weight', 'blocks.10.mlp.gates.0.cosine_projector.bias', 'head.weight', 'head.bias'], unexpected_keys=[])
+algorithm     dataset       env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          loss_aux      mem_gb        step          step_time     test_envs    
+GMOE          OfficeHome    0.0160        0.0206        0.0135        0.0126        0.0144        0.0237        0.0152        0.0115        0.0000        4.2718        0.0001        7.2343        0             11.3733       [2]          
+/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/scripts/train.py", line 234, in <module>
+    step_vals = algorithm.update(minibatches_device)
+  File "/lustre/scratch/client/vinai/users/trangnvt2/Generalizable-Mixture-of-Experts/domainbed/algorithms.py", line 217, in update
+    return {'loss': loss.item(), 'loss_aux': loss_aux.item()}
+KeyboardInterrupt
+WARNING:root:[31mYou are loading a legacy format of checkpoint with at least one Tutel MoE layer inside, which wouldn't support new Tutel feature allowing the number of experts per checkpoint file to mutate.[0m
+WARNING:root:[31m  The next time you overwrite it with new checkpoint, the recording format will be updated automatically.[0m
+WARNING:root:[31m  However, the new format won't be compatible with early Tutel versions, unless you force loading it with `model.load_state_dict(.., strict=False)`.[0m
+WARNING:root:[31mYou are loading a legacy format of checkpoint with at least one Tutel MoE layer inside, which wouldn't support new Tutel feature allowing the number of experts per checkpoint file to mutate.[0m
+WARNING:root:[31m  The next time you overwrite it with new checkpoint, the recording format will be updated automatically.[0m
+WARNING:root:[31m  However, the new format won't be compatible with early Tutel versions, unless you force loading it with `model.load_state_dict(.., strict=False)`.[0m
+_IncompatibleKeys(missing_keys=['blocks.8.mlp.gates.0.temperature', 'blocks.8.mlp.gates.0.sim_matrix', 'blocks.8.mlp.gates.0.cosine_projector.weight', 'blocks.8.mlp.gates.0.cosine_projector.bias', 'blocks.10.mlp.gates.0.temperature', 'blocks.10.mlp.gates.0.sim_matrix', 'blocks.10.mlp.gates.0.cosine_projector.weight', 'blocks.10.mlp.gates.0.cosine_projector.bias', 'head.weight', 'head.bias'], unexpected_keys=[])
+algorithm     dataset       env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          loss_aux      mem_gb        step          step_time     test_envs    
+GMOE          OfficeHome    0.0160        0.0206        0.0135        0.0126        0.0144        0.0237        0.0152        0.0115        0.0000        4.2718        0.0001        7.2343        0             18.7415       [2]          
+/lustre/scratch/client/vinai/users/trangnvt/envs/moe/lib/python3.9/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+GMOE          OfficeHome    0.5891        0.5608        0.5278        0.4811        0.5146        0.5276        0.6256        0.5637        4.9434        3.4071        0.0000        7.4875        300           0.5528        [2]          
+GMOE          OfficeHome    0.7559        0.7052        0.6924        0.6186        0.6771        0.6821        0.7748        0.7348        9.8867        2.0507        0.0005        7.4882        600           0.5524        [2]          
+GMOE          OfficeHome    0.8435        0.7670        0.7804        0.6850        0.7351        0.7339        0.8351        0.7968        14.8301       1.3864        0.0013        7.4893        900           0.3164        [2]          
+GMOE          OfficeHome    0.8970        0.7814        0.8253        0.7136        0.7463        0.7452        0.8738        0.8278        19.7734       1.0143        0.0015        7.4893        1200          0.3147        [2]          
+GMOE          OfficeHome    0.9284        0.8021        0.8637        0.7503        0.7751        0.7666        0.8959        0.8427        24.7168       0.7785        0.0013        7.4893        1500          0.3218        [2]          
+GMOE          OfficeHome    0.9408        0.8165        0.8843        0.7537        0.7821        0.7802        0.9200        0.8507        29.6601       0.6241        0.0012        7.4893        1800          0.3856        [2]          
+GMOE          OfficeHome    0.9552        0.8041        0.9035        0.7468        0.7846        0.7779        0.9340        0.8599        34.6035       0.5105        0.0010        7.4893        2100          0.5487        [2]          
+GMOE          OfficeHome    0.9645        0.8124        0.9235        0.7732        0.7950        0.7790        0.9466        0.8542        39.5469       0.4275        0.0009        7.4893        2400          0.5502        [2]          
+GMOE          OfficeHome    0.9732        0.8309        0.9338        0.7824        0.7990        0.7880        0.9575        0.8645        44.4902       0.3595        0.0008        7.4893        2700          0.5476        [2]          
+GMOE          OfficeHome    0.9784        0.7959        0.9467        0.7881        0.7948        0.7756        0.9650        0.8645        49.4336       0.3092        0.0007        7.4893        3000          0.3137        [2]          
+GMOE          OfficeHome    0.9851        0.8351        0.9505        0.7984        0.8015        0.7959        0.9684        0.8657        54.3769       0.2704        0.0007        7.4893        3300          0.3109        [2]          
+GMOE          OfficeHome    0.9892        0.8165        0.9576        0.7835        0.7979        0.7914        0.9773        0.8691        59.3203       0.2386        0.0006        7.4893        3600          0.3115        [2]          
+GMOE          OfficeHome    0.9882        0.8247        0.9639        0.8076        0.8029        0.7914        0.9805        0.8611        64.2636       0.2059        0.0006        7.4893        3900          0.5511        [2]          
+GMOE          OfficeHome    0.9923        0.8186        0.9679        0.7915        0.8046        0.7813        0.9859        0.8691        69.2070       0.1859        0.0005        7.4893        4200          0.5497        [2]          
+GMOE          OfficeHome    0.9943        0.8268        0.9725        0.8053        0.8063        0.7858        0.9862        0.8714        74.1504       0.1610        0.0005        7.4893        4500          0.5503        [2]          
+GMOE          OfficeHome    0.9928        0.8206        0.9757        0.7904        0.8063        0.7903        0.9894        0.8760        79.0937       0.1453        0.0004        7.4893        4800          0.4624        [2]          
+GMOE          OfficeHome    0.9943        0.8165        0.9768        0.7973        0.8035        0.7926        0.9905        0.8588        82.3893       0.1349        0.0003        7.4893        5000          0.3151        [2]          
