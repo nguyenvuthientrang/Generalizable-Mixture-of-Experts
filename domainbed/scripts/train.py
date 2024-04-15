@@ -55,6 +55,10 @@ if __name__ == "__main__":
                         help="For domain adaptation, % of test to use unlabeled for training.")
     parser.add_argument('--skip_model_save', action='store_true')
     parser.add_argument('--save_model_every_checkpoint', action='store_true')
+
+    parser.add_argument('--form', type=int, default=3)
+    parser.add_argument('--epsw', type=float, default=0.)
+    parser.add_argument('--epsx', type=float, default=0.)
     args = parser.parse_args()
 
     # If we ever want to implement checkpointing, just persist these values
@@ -62,6 +66,7 @@ if __name__ == "__main__":
     start_step = 0
     algorithm_dict = None
 
+    args.output_dir = os.path.join(args.output_dir, 'form_{}_epsw_{}_epsx_{}'.format(args.form, args.epsw, args.epsx))
     os.makedirs(args.output_dir, exist_ok=True)
     sys.stdout = misc.Tee(os.path.join(args.output_dir, 'out.txt'))
     sys.stderr = misc.Tee(os.path.join(args.output_dir, 'err.txt'))
@@ -102,6 +107,10 @@ if __name__ == "__main__":
         hparams['lr'] = args.lr
     if args.weight_decay is not None:
         hparams['weight_decay'] = args.weight_decay
+
+    hparams['form'] = args.form
+    hparams['epsw'] = args.epsw
+    hparams['epsx'] = args.epsx
 
     # print('HParams:')
     # for k, v in sorted(hparams.items()):

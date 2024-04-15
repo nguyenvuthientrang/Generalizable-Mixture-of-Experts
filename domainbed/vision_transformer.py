@@ -236,7 +236,7 @@ class Attention(nn.Module):
 
 class Block(nn.Module):
 
-    def __init__(self, dim, num_heads, mlp_ratio=4., qkv_bias=False, drop=0., attn_drop=0., drop_path=0., act_layer=nn.GELU, norm_layer=nn.LayerNorm, cur_depth=0, moe_layers=None, num_experts=6, router='cosine_top'):
+    def __init__(self, dim, num_heads, mlp_ratio=4., qkv_bias=False, drop=0., attn_drop=0., drop_path=0., act_layer=nn.GELU, norm_layer=nn.LayerNorm, cur_depth=0, moe_layers=None, num_experts=6, router='cosine_top', form=3, epsw=1e-4, epsx=1e-4):
         super().__init__()
         self.norm1 = norm_layer(dim)
         self.attn = Attention(dim, num_heads=num_heads, qkv_bias=qkv_bias, attn_drop=attn_drop, proj_drop=drop)
@@ -253,7 +253,8 @@ class Block(nn.Module):
         if self.cur_layer == 'S':
             # print(f'cur_layer {cur_depth} is sparse with {num_experts} experts with BPR True')
             self.mlp = tutel_moe.moe_layer(
-                gate_type={'type': router, 'k': 1, 'fp32_gate': True, 'gate_noise': 1.0, 'capacity_factor': 1.5},
+                gate_type={'type': router, 'k': 1, 'fp32_gate': True, 'gate_noise': 0, 'capacity_factor': 1.5,
+                           'form': form, 'epsw': epsw, 'epsx': epsx},
                 experts={'type': 'ffn', 'count_per_node': num_experts,
                          'hidden_size_per_expert': mlp_hidden_dim,
                          'activation_fn': lambda x: self.moe_drop(F.gelu(x))},
@@ -294,7 +295,7 @@ class VisionTransformer(nn.Module):
     def __init__(self, img_size=224, patch_size=16, in_chans=3, num_classes=1000, embed_dim=768, depth=12,
                  num_heads=12, mlp_ratio=4., qkv_bias=True, representation_size=None, distilled=False,
                  drop_rate=0., attn_drop_rate=0., drop_path_rate=0., embed_layer=PatchEmbed, norm_layer=None,
-                 act_layer=None, weight_init='', moe_layers=None, num_experts=6, index_hook=False, router='cosine_top'):
+                 act_layer=None, weight_init='', moe_layers=None, num_experts=6, index_hook=False, router='cosine_top', form=3, epsw=1e-4, epsx=1e-4):
         """
         Args:
             img_size (int, tuple): input image size
@@ -335,7 +336,7 @@ class VisionTransformer(nn.Module):
             Block(
                 dim=embed_dim, num_heads=num_heads, mlp_ratio=mlp_ratio, qkv_bias=qkv_bias, drop=drop_rate,
                 attn_drop=attn_drop_rate, drop_path=dpr[i], norm_layer=norm_layer, act_layer=act_layer,
-                cur_depth=i, moe_layers=moe_layers, num_experts=num_experts, router=router)
+                cur_depth=i, moe_layers=moe_layers, num_experts=num_experts, router=router, form=form, epsw=epsw, epsx=epsx)
             for i in range(depth)])
         self.norm = norm_layer(embed_dim)
 
