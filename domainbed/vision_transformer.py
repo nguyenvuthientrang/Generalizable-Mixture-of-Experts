@@ -253,7 +253,7 @@ class Block(nn.Module):
         if self.cur_layer == 'S':
             # print(f'cur_layer {cur_depth} is sparse with {num_experts} experts with BPR True')
             self.mlp = tutel_moe.moe_layer(
-                gate_type={'type': router, 'k': 1, 'fp32_gate': True, 'gate_noise': 0, 'capacity_factor': 1.5,
+                gate_type={'type': router, 'k': 1, 'fp32_gate': True, 'gate_noise': 1.0, 'capacity_factor': 1.5,
                            'form': form, 'epsw': epsw, 'epsx': epsx},
                 experts={'type': 'ffn', 'count_per_node': num_experts,
                          'hidden_size_per_expert': mlp_hidden_dim,
